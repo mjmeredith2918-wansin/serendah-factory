@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>21 Detached Factories · Sungai Buaya, Serendah</title>
 <meta name="description" content="21 detached factories on 0.99–1.25 acres in Sungai Buaya, Serendah. Book a private viewing.">
-<meta property="og:title" content="Own your factory. Stop renting one. · Serendah">
-<meta property="og:description" content="Only 21 detached factories, 0.99–1.25 acres, beside Google Data Center, Perodua & LONGi. Book a private viewing.">
+<meta property="og:title" content="A 1-acre detached factory under RM 10 million · Serendah">
+<meta property="og:description" content="1 英亩独立式工厂，不到 RM 1,000 万。Only 21 brand-new detached factories near Google Data Center, Perodua & LONGi. Book a private viewing.">
 <meta property="og:image" content="images/factory.jpg">
 <meta name="theme-color" content="#0f1a33">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -379,6 +379,27 @@ footer p{margin-top:8px;max-width:760px}
   .mapbox{aspect-ratio:1.25}
 }
 
+/* Price comparison */
+.compare{margin-top:48px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.crow{display:grid;grid-template-columns:140px 1fr 130px;gap:16px;align-items:center;margin-bottom:14px}
+.cname{font-weight:600;font-size:15px}
+.ctrack{height:40px;background:var(--cream);border-radius:10px;overflow:hidden}
+.cfill{height:100%;border-radius:10px;background:#cfd3dc;display:flex;align-items:center;padding:0 14px;white-space:nowrap;transform-origin:left;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.compare:not(.in) .cfill{transform:scaleX(.05)}
+.cfill b{font-size:14px;font-weight:700;color:var(--navy)}
+.cpsf{font-size:14px;color:var(--muted);text-align:right}
+.crow.us .cname{color:var(--gold);font-weight:800}
+.crow.us .cfill{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.crow.us .cfill b{color:#fff}
+.crow.us .cpsf{color:var(--navy);font-weight:700}
+.cnote{font-size:12px;color:var(--muted);margin-top:18px}
+.calc-head{margin-top:88px}
+.calc-head h3{font-size:clamp(26px,3.2vw,40px);margin-bottom:10px}
+.calc-head h3 .serif{font-style:italic;font-weight:400}
+.calc-head p{color:var(--muted);max-width:640px}
+.calc-head + .calc{margin-top:32px}
+@media(max-width:640px){.compare{padding:20px 16px}.crow{grid-template-columns:1fr auto;gap:6px 10px;margin-bottom:16px}.crow .ctrack{grid-column:1/-1;grid-row:2}.cname{font-size:14px}.cpsf{font-size:13px}.calc-head{margin-top:64px}}
+
 /* Language switch */
 .nav-r{display:flex;align-items:center;gap:12px}
 .lang{display:inline-flex;gap:2px;padding:3px;border-radius:99px;border:1px solid rgba(255,255,255,.4);background:rgba(15,26,51,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
@@ -413,7 +434,7 @@ html[lang^="zh"] .hero h1{font-size:clamp(40px,7vw,92px)}
 </nav>
 
 <div class="dots" id="dots">
-  <a href="#pain" data-s="pain"><span data-zh='真实成本'>The real cost</span><i></i></a>
+  <a href="#pain" data-s="pain"><span data-zh='价格比一比'>Price check</span><i></i></a>
   <a href="#match" data-s="match"><span data-zh='你的配对'>Your match</span><i></i></a>
   <a href="#product" data-s="product"><span data-zh='厂房'>The factory</span><i></i></a>
   <a href="#location" data-s="location"><span data-zh='地点'>Location</span><i></i></a>
@@ -425,29 +446,43 @@ html[lang^="zh"] .hero h1{font-size:clamp(40px,7vw,92px)}
 <header class="hero" id="top">
   <div class="bg"></div>
   <div class="wrap">
-    <div class="eyebrow rv" data-zh='新工业园 · Sungai Buaya, Serendah'>New industrial park · Sungai Buaya, Serendah</div>
-    <h1 class="rv d1" data-zh='别再帮房东<br>供他的<span class="serif">工厂。</span>'>Stop paying for<br>someone else's <span class="serif">factory.</span></h1>
-    <p class="sub rv d2" data-zh='21 间独立式工厂，地段最大 1.25 英亩，邻居是 Google 数据中心、Perodua 和 LONGi。卖完就没有了。'>21 detached factories on up to 1.25 acres, with Google Data Center, Perodua and LONGi as neighbours. Once they're taken, that's it.</p>
+    <div class="eyebrow rv" data-zh='Sungai Buaya, Serendah · 南北大道旁 · 全新独立式工厂'>Sungai Buaya, Serendah · On the North–South Expressway · Brand-new detached factories</div>
+    <h1 class="rv d1" data-zh='1 英亩独立式工厂，<br><span class="serif">不到 RM 1,000 万。</span>'>A 1-acre detached factory.<br><span class="serif">Under RM 10 million.</span></h1>
+    <p class="sub rv d2" data-zh='最大 25,865 平方尺建筑面积、12 米楼高、3 吨楼面承重，Google 数据中心、Perodua 和 LONGi 就在附近。同样大小在 Shah Alam 叫价约 RM 1,800 万，这里 RM 998.5 万起，而且只有 21 间。'>Up to 25,865 sq ft built-up, 12 m ceilings and 3-tonne floors, near Google Data Center, Perodua and LONGi. The same size asks about RM 18 million in Shah Alam. Here it starts at RM 9.985 million, and there are only 21.</p>
     <div class="ctas rv d3">
-      <a href="#pain" class="btn btn-gold" data-zh='算一算你交了多少租金 <span class="arr">→</span>'>See what renting really costs you <span class="arr">→</span></a>
+      <a href="#pain" class="btn btn-gold" data-zh='看看同样大小在别处卖多少 <span class="arr">→</span>'>See what this size costs elsewhere <span class="arr">→</span></a>
       <a href="#book" class="btn btn-ghost" data-zh='预约看厂'>Book a viewing</a>
     </div>
     <div class="hero-stats rv d3">
-      <div><b>21</b><small data-zh='仅此 21 间'>Units only</small></div>
-      <div><b>0.99–1.25</b><small data-zh='英亩地段'>Acres of land</small></div>
-      <div><b data-zh='12 米'>12 m</b><small data-zh='楼高'>Ceiling height</small></div>
-      <div><b data-zh='3 吨'>3-tonne</b><small data-zh='楼面承重'>Floor loading</small></div>
+      <div><b data-zh='RM 998.5万'>RM 9.985M</b><small data-zh='起价'>Starting price</small></div>
+      <div><b data-zh='0.99–1.25 英亩'>0.99–1.25 ac</b><small data-zh='地段面积'>Land per unit</small></div>
+      <div><b data-zh='25,865 尺'>25,865 sf</b><small data-zh='最大建筑面积'>Max built-up</small></div>
+      <div><b>E1</b><small data-zh='经 Sungai Buaya 交流道'>Via Sungai Buaya interchange</small></div>
     </div>
   </div>
   <div class="scrollcue"><span data-zh='往下滑'>Scroll</span><i></i></div>
 </header>
 
 <!-- ============ STEP 1 · PAIN ============ -->
-<section class="pain" id="pain" data-step="1" data-label="The real cost" data-label-zh="真实成本">
+<section class="pain" id="pain" data-step="1" data-label="Price check" data-label-zh="价格比一比">
   <div class="wrap">
-    <div class="step rv"><span class="num" data-zh='第 1 步 / 共 6 步'>STEP 1 / 6</span><span class="eyebrow" data-zh='租金的真实成本'>The real cost of renting</span></div>
-    <h2 class="rv" data-zh='每个月交租，<br>你都在<span class="serif gold">帮别人累积财富。</span>'>Every month you rent,<br>you're <span class="serif gold">building someone else's wealth.</span></h2>
-    <p class="lead rv" data-zh='拉动滑杆，输入你现在工厂的情况，看看有多少租金流出你的生意，到最后你又拥有什么。'>Move the sliders to match your current factory. See how much rent leaves your business, and what you own at the end of it.</p>
+    <div class="step rv"><span class="num" data-zh='第 1 步 / 共 6 步'>STEP 1 / 6</span><span class="eyebrow" data-zh='价格比一比'>Price check</span></div>
+    <h2 class="rv" data-zh='同样大小的独立式工厂，<br>在 Shah Alam 叫价 <span class="serif gold">RM 1,800 万。</span>'>The same detached factory<br>in Shah Alam asks <span class="serif gold">RM 18 million.</span></h2>
+    <p class="lead rv" data-zh='我们查了 iProperty 上巴生谷主要工业区、建筑面积 1.5 万至 4 万平方尺的独立式工厂。同样的大小，这里便宜几百万。'>We checked detached factories of 15,000–40,000 sq ft built-up listed on iProperty in the Klang Valley's main industrial areas. Here, the same size costs millions less.</p>
+
+    <div class="compare rv">
+      <div class="crow"><span class="cname">Sungai Buloh</span><div class="ctrack"><div class="cfill" style="width:100%"><b data-zh='RM 2,000万'>RM 20.0M</b></div></div><span class="cpsf" data-zh='每尺 RM 638'>RM 638 psf</span></div>
+      <div class="crow"><span class="cname">Shah Alam</span><div class="ctrack"><div class="cfill" style="width:90%"><b data-zh='RM 1,800万'>RM 18.0M</b></div></div><span class="cpsf" data-zh='每尺 RM 635'>RM 635 psf</span></div>
+      <div class="crow"><span class="cname">Puchong</span><div class="ctrack"><div class="cfill" style="width:84%"><b data-zh='RM 1,675万'>RM 16.75M</b></div></div><span class="cpsf" data-zh='每尺 RM 678'>RM 678 psf</span></div>
+      <div class="crow"><span class="cname">Rawang</span><div class="ctrack"><div class="cfill" style="width:69%"><b data-zh='RM 1,389万'>RM 13.9M</b></div></div><span class="cpsf" data-zh='每尺 RM 514'>RM 514 psf</span></div>
+      <div class="crow us"><span class="cname" data-zh='本项目'>This project</span><div class="ctrack"><div class="cfill" style="width:50%"><b data-zh='RM 998.5万起'>From RM 9.985M</b></div></div><span class="cpsf" data-zh='每尺 RM 425–437'>RM 425–437 psf</span></div>
+      <p class="cnote" data-zh='各区数字为叫价中位数：iProperty.com.my 上建筑面积 1.5 万至 4 万平方尺的独立式工厂（每区 14–17 个 listing），收集于 2026 年 10 月 21 日。是叫价，不是成交价；各区地段面积不一。本项目价格为 SPA 价，每尺按建筑面积计算。'>Area figures are median asking prices for detached factories of 15,000–40,000 sq ft built-up on iProperty.com.my (14–17 listings per area), collected 21 Oct 2026. They are asking prices, not transacted prices, and land sizes vary. This project's figures are SPA prices; psf is on built-up area.</p>
+    </div>
+
+    <div class="calc-head rv">
+      <h3 data-zh='要扩充产能？<span class="serif gold">先算算租一间要多少。</span>'>Expanding? <span class="serif gold">See what renting a second plant costs.</span></h3>
+      <p data-zh='租一间同样大小的厂，附近一般每月 RM 40,000。拉动滑杆，看看几年下来付出多少，最后又拥有什么。'>A factory this size nearby rents for about RM 40,000 a month. Move the sliders to see what that adds up to, and what you own at the end.</p>
+    </div>
 
     <div class="calc">
       <div class="card rv">
@@ -580,7 +615,7 @@ html[lang^="zh"] .hero h1{font-size:clamp(40px,7vw,92px)}
 <section class="product" id="product" data-step="3" data-label="The factory" data-label-zh="厂房" data-dark>
   <div class="wrap">
     <div class="step rv"><span class="num" data-zh='第 3 步 / 共 6 步'>STEP 3 / 6</span><span class="eyebrow" style="color:var(--gold-2)" data-zh='为生产而建'>Built for production</span></div>
-    <h2 class="rv" data-zh='属于你自己的独立式工厂，<br><span class="serif">不用跟人共用一道墙。</span>'>Your own detached factory,<br><span class="serif">with nobody sharing your walls.</span></h2>
+    <h2 class="rv" data-zh='1 英亩地，2.5 万平方尺，<br><span class="serif">装得下你下一个十年的生意。</span>'>One acre. 25,000 sq ft.<br><span class="serif">Room for your next ten years.</span></h2>
     <p class="lead rv" data-zh='每间都有生产、仓储和办公空间，有体面的公司门面，四周还有空地让罗里转弯和上下货。'>Each unit has room for production, storage and offices, a corporate front for your business, and space around the building for trucks to turn and load.</p>
 
     <figure class="showcase rv" id="showcase">
@@ -608,7 +643,7 @@ html[lang^="zh"] .hero h1{font-size:clamp(40px,7vw,92px)}
 <section class="loc" id="location" data-step="4" data-label="Location" data-label-zh="地点">
   <div class="wrap">
     <div class="step rv"><span class="num" data-zh='第 4 步 / 共 6 步'>STEP 4 / 6</span><span class="eyebrow" data-zh='地点与产业链'>Location and ecosystem</span></div>
-    <h2 class="rv" data-zh='大企业<span class="serif gold">已经在这里了。</span>'>The big names <span class="serif gold">are already here.</span></h2>
+    <h2 class="rv" data-zh='Google、Perodua、LONGi<br><span class="serif gold">已经选了 Serendah。</span>'>Google, Perodua and LONGi<br><span class="serif gold">already chose Serendah.</span></h2>
     <p class="lead rv" data-zh='项目位于 Sungai Buaya–Serendah 工业走廊，汽车、制造、物流和数据中心企业都已经进驻。'>The site sits in the Sungai Buaya–Serendah industrial corridor, where automotive, manufacturing, logistics and data-centre players have already set up.</p>
   </div>
 
@@ -649,7 +684,7 @@ html[lang^="zh"] .hero h1{font-size:clamp(40px,7vw,92px)}
 <section class="types" id="types" data-step="5" data-label="Choose your lot" data-label-zh="选择地段">
   <div class="wrap">
     <div class="step rv"><span class="num" data-zh='第 5 步 / 共 6 步'>STEP 5 / 6</span><span class="eyebrow" data-zh='选择地段'>Choose your lot</span></div>
-    <h2 class="rv" data-zh='21 个地段，<span class="serif gold">一个工业地址。</span>'>21 lots. <span class="serif gold">One industrial address.</span></h2>
+    <h2 class="rv" data-zh='只有 21 间，<span class="serif gold">卖一间就少一间。</span>'>Just 21 units. <span class="serif gold">When they're gone, they're gone.</span></h2>
     <p class="lead rv" data-zh='三种格局，同一个建筑标准。总共只有 21 个地段，每多一个预订，选择就少一个。'>Three layouts, one standard of build. Only 21 lots in total, and the choice gets smaller with every booking.</p>
 
     <div class="scarcity rv">
