@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>21 Detached Factories · Sungai Buaya, Serendah</title>
+<meta name="description" content="21 detached factories on 0.99–1.25 acres in Sungai Buaya, Serendah. Book a private viewing.">
+<meta property="og:title" content="Own your factory. Stop renting one. · Serendah">
+<meta property="og:description" content="Only 21 detached factories, 0.99–1.25 acres, beside Google Data Center, Perodua & LONGi. Book a private viewing.">
+<meta property="og:image" content="images/factory.jpg">
+<meta name="theme-color" content="#0f1a33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f1a33; --navy-2:#18264a; --ink:#141b2d; --muted:#5d6475;
+  --gold:#a8814f; --gold-2:#c9a46c; --gold-soft:#efe4d2;
+  --cream:#f6f3ed; --paper:#fffdf9; --line:#e5ddd0;
+  --green:#25d366;
+  --radius:20px; --shadow:0 20px 60px -20px rgba(15,26,51,.25);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+.gold{color:var(--gold)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{letter-spacing:-.025em;line-height:1.05;font-weight:700}
+h2{font-size:clamp(34px,5vw,60px);margin:18px 0 18px}
+h2 .serif{font-style:italic;font-weight:400;letter-spacing:-.01em}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:640px}
+section{padding:120px 0;position:relative}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,#c9a46c,#a8814f);color:#fff;box-shadow:0 10px 30px -8px rgba(168,129,79,.6)}
+.btn-gold:hover{box-shadow:0 16px 40px -8px rgba(168,129,79,.75)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(8px);background:rgba(255,255,255,.06)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-wa{background:var(--green);color:#fff}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Top progress + nav */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold-2),var(--gold));width:0;z-index:100;transition:width .1s linear}
+nav.top{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .3s,box-shadow .3s,color .3s;color:#fff}
+nav.top.solid{background:rgba(255,253,249,.88);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);box-shadow:0 1px 0 var(--line);color:var(--ink)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.brand b i{font-style:normal;color:var(--gold-2)}
+.brand span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.stepchip{font-size:13px;font-weight:500;opacity:.85;display:none}
+nav.top.solid .stepchip{display:block}
+nav.top .btn{padding:11px 20px;font-size:14px}
+
+/* Side step dots */
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:14px}
+.dots a{display:flex;align-items:center;justify-content:flex-end;gap:10px;text-decoration:none;font-size:12px;font-weight:600;color:var(--muted)}
+.dots a span{opacity:0;transform:translateX(6px);transition:.2s;background:var(--paper);padding:3px 10px;border-radius:99px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.dots a:hover span{opacity:1;transform:none}
+.dots a i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--gold);transition:.25s}
+.dots a.on i{background:var(--gold);transform:scale(1.35)}
+.dots.dark a i{border-color:#fff}
+.dots.dark a.on i{background:#fff}
+@media(max-width:1100px){.dots{display:none}}
+
+/* HERO */
+.hero{min-height:100svh;padding:0;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--navy)}
+.hero .bg{position:absolute;inset:0;background:url(images/factory.jpg) center 40%/cover no-repeat;transform:scale(1.08);animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,17,36,.55) 0%,rgba(10,17,36,.15) 35%,rgba(10,17,36,.75) 72%,rgba(10,17,36,.95) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:72px;padding-top:140px;width:100%}
+.hero .eyebrow{color:var(--gold-2)}
+.hero h1{font-size:clamp(44px,8vw,104px);margin:22px 0 22px;max-width:1000px}
+.hero h1 .serif{font-style:italic;color:var(--gold-2);font-weight:400}
+.hero p.sub{font-size:clamp(17px,1.8vw,21px);max-width:620px;color:rgba(255,255,255,.82)}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1px solid rgba(255,255,255,.18);padding-top:28px}
+.hero-stats div{padding-right:20px}
+.hero-stats b{display:block;font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-.02em}
+.hero-stats small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.scrollcue{position:absolute;left:50%;bottom:18px;z-index:3;transform:translateX(-50%);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue i{width:1px;height:28px;background:linear-gradient(rgba(255,255,255,.7),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Step label */
+.step{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.step .num{font-size:12px;font-weight:700;color:var(--navy);background:var(--gold-soft);border-radius:99px;padding:5px 12px;letter-spacing:.08em}
+
+/* STEP 1: Rent calculator */
+.pain{background:var(--paper)}
+.calc{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;margin-top:56px;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow)}
+.field{margin-bottom:30px}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:15px;margin-bottom:14px}
+.field label output{font-size:22px;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--gold) var(--p,50%),#ece6db var(--p,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(168,129,79,.4);cursor:grab}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--gold);cursor:grab}
+.range-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px}
+.result{background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;right:-120px;top:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,164,108,.35),transparent 70%)}
+.result small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.result .big{font-size:clamp(40px,5.5vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:12px 0 6px;color:#fff}
+.result .big span{color:var(--gold-2)}
+.result p{color:rgba(255,255,255,.78)}
+.bars{margin:30px 0 26px;display:grid;gap:14px}
+.bar{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:14px;font-size:13px}
+.bar .track{height:34px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden;position:relative}
+.bar .fill{height:100%;border-radius:10px;transition:width .6s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;padding:0 12px;font-weight:700;font-size:13px;white-space:nowrap}
+.bar.rent .fill{background:linear-gradient(90deg,#e05a4f,#f08a5d)}
+.bar.own .fill{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:var(--navy)}
+.verdict{border-top:1px solid rgba(255,255,255,.15);padding-top:22px;font-size:17px}
+.verdict b{color:var(--gold-2)}
+.fine{font-size:12px;color:var(--muted);margin-top:14px}
+.market{margin-top:96px}
+.market-head h3{font-size:clamp(28px,3.6vw,44px);margin:14px 0 12px}
+.market-head h3 .serif{font-style:italic;font-weight:400}
+.market-head p{color:var(--muted);max-width:640px}
+.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.mstat{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.mstat small{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mstat b{display:block;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--navy);margin:12px 0 10px;line-height:1.1}
+.mstat b span{font-size:14px;font-weight:600;color:var(--muted);margin-left:6px;letter-spacing:0}
+.mstat p{font-size:14px;color:var(--muted);line-height:1.55}
+.mtable{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow-x:auto}
+.mtable table{width:100%;border-collapse:collapse;font-size:15px}
+.mtable th,.mtable td{padding:14px 20px;text-align:left;border-bottom:1px solid var(--line)}
+.mtable th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--paper)}
+.mtable td:nth-child(4){font-weight:700;color:var(--navy)}
+.mtable td:not(:first-child),.mtable th{white-space:nowrap}
+.mfoot{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:20px;flex-wrap:wrap}
+.mfoot p{font-size:12px;color:var(--muted);max-width:620px}
+.mfoot .btn{padding:12px 20px;font-size:14px}
+@media(max-width:960px){.mstats{grid-template-columns:1fr}}
+@media(max-width:820px){.mtable th:nth-child(3),.mtable td:nth-child(3){display:none}.mtable th,.mtable td{padding:12px 14px}}
+@media(max-width:640px){.market{margin-top:64px}.mtable th:nth-child(3),.mtable td:nth-child(3){display:none}.mtable th,.mtable td{padding:12px 12px;font-size:13px}.mfoot .btn{width:100%;white-space:normal}}
+.result .fine{color:rgba(255,255,255,.45)}
+
+/* STEP 2: Quiz */
+.quiz-sec{background:var(--cream)}
+.quiz{max-width:860px;margin:56px auto 0;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+.quiz-head{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.quiz-bar{height:4px;background:#f0eadf}
+.quiz-bar i{display:block;height:100%;background:var(--gold);width:33%;transition:width .4s}
+.q{display:none;padding:40px 32px 36px;animation:fadeUp .45s ease}
+.q.on{display:block}
+.q h3{font-size:clamp(24px,3vw,32px);margin-bottom:26px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opt{text-align:left;border:1.5px solid var(--line);border-radius:16px;padding:22px 20px;transition:.2s;background:var(--paper)}
+.opt:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px -12px rgba(168,129,79,.5)}
+.opt .ic{font-size:28px;margin-bottom:12px;display:block}
+.opt b{display:block;font-size:17px;margin-bottom:4px}
+.opt span{font-size:14px;color:var(--muted);line-height:1.45;display:block}
+.back{margin-top:22px;font-size:14px;color:var(--muted);text-decoration:underline}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.match .pic{background:url(images/factory.jpg) center/cover;min-height:340px;position:relative}
+.match .pic em{position:absolute;left:18px;bottom:16px;font-size:11px;color:#fff;opacity:.8;font-style:normal}
+.match .info{padding:40px 36px}
+.match .tag{display:inline-block;background:var(--gold-soft);color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+.match h3{font-size:34px;margin:14px 0 8px}
+.match ul{list-style:none;margin:18px 0 26px;display:grid;gap:10px}
+.match li{display:flex;gap:10px;font-size:15px}
+.match li::before{content:"✓";color:var(--gold);font-weight:800}
+.match .left{font-size:14px;color:#b34a3e;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.pulse{width:8px;height:8px;border-radius:50%;background:#e05a4f;box-shadow:0 0 0 0 rgba(224,90,79,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(224,90,79,0)}100%{box-shadow:0 0 0 0 rgba(224,90,79,0)}}
+
+/* STEP 3: Product */
+.product{background:var(--navy);color:#fff;overflow:hidden}
+.product .lead{color:rgba(255,255,255,.7)}
+.product h2 .serif{color:var(--gold-2)}
+.showcase{margin-top:56px;border-radius:28px;overflow:hidden;position:relative;aspect-ratio:16/8.7}
+.showcase img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.showcase.in img{transform:scale(1)}
+.showcase figcaption{position:absolute;left:20px;bottom:14px;font-size:11px;color:rgba(255,255,255,.75)}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:22px;overflow:hidden;margin-top:28px}
+.spec{background:var(--navy-2);padding:32px 26px}
+.spec b{display:block;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--gold-2)}
+.spec b small{font-size:.45em;font-weight:600;color:#fff;margin-left:4px}
+.spec h4{font-size:15px;margin:14px 0 6px}
+.spec p{font-size:14px;color:rgba(255,255,255,.62);line-height:1.5}
+.inside{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.inside div{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:20px;font-size:15px;display:flex;gap:12px;align-items:center}
+.inside div span{font-size:22px}
+
+/* STEP 4: Location */
+.loc{background:var(--paper)}
+.neighbours{margin-top:44px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{display:flex;gap:14px;width:max-content;animation:marq 38s linear infinite}
+.neighbours:hover .marquee{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.chip{display:flex;align-items:center;gap:10px;padding:14px 22px;border:1px solid var(--line);border-radius:99px;background:#fff;font-weight:600;font-size:15px;white-space:nowrap}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.loc-grid{display:grid;grid-template-columns:1fr 1.55fr;gap:40px;margin-top:56px;align-items:start}
+.reasons{display:grid;gap:14px}
+.reason{display:flex;gap:18px;padding:22px;border-radius:18px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:.2s;text-align:left;width:100%}
+.reason:hover{border-color:var(--gold-2)}
+.reason.on{border-color:var(--gold);box-shadow:0 14px 34px -16px rgba(168,129,79,.55);background:linear-gradient(180deg,#fff,#fdf8f0)}
+.reason .n{font-size:13px;font-weight:800;color:var(--gold);min-width:26px;padding-top:3px}
+.reason h4{font-size:18px;margin-bottom:4px;letter-spacing:-.01em}
+.reason p{font-size:14px;color:var(--muted);line-height:1.5}
+.reason .pill{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;background:var(--gold-soft);color:var(--gold);padding:4px 10px;border-radius:99px}
+.mapbox{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);aspect-ratio:1.62}
+.mapbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;opacity:0;transition:opacity .5s}
+.mapbox img.on{opacity:1}
+.mapbox .zoom{position:absolute;right:14px;bottom:14px;background:rgba(15,26,51,.85);color:#fff;font-size:12px;font-weight:600;padding:8px 14px;border-radius:99px;z-index:2}
+.mapnote{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* STEP 5: Types */
+.types{background:var(--cream)}
+.scarcity{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px}
+.scarcity .lots{display:flex;gap:4px;flex-wrap:wrap}
+.scarcity .lots i{width:14px;height:22px;border-radius:4px;background:var(--gold)}
+.scarcity .lots i.taken{background:#d9d2c5}
+.scarcity span{font-size:14px;font-weight:600;color:var(--navy)}
+.tabs{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px;margin-top:44px;gap:4px;flex-wrap:wrap}
+.tab{padding:12px 24px;border-radius:99px;font-weight:600;font-size:15px;color:var(--muted);transition:.2s}
+.tab.on{background:var(--navy);color:#fff}
+.tab small{font-weight:500;opacity:.7;margin-left:6px}
+.typecard{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:36px;box-shadow:var(--shadow);animation:fadeUp .45s ease}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.plans figure{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;cursor:zoom-in}
+.plans figcaption{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.typeinfo .tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.typeinfo h3{font-size:clamp(28px,3vw,38px);margin:10px 0 14px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:22px 0}
+.kv div{background:var(--paper);padding:16px 18px}
+.kv small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kv b{font-size:20px;letter-spacing:-.02em}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.price small{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.price b{font-size:clamp(30px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--navy)}
+.psf{font-size:14px;color:var(--muted);margin-bottom:22px}
+.lotlist{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 24px}
+.lotlist span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:10px;background:var(--gold-soft);color:var(--navy)}
+.lotlist span.taken{background:#eee;color:#aaa;text-decoration:line-through}
+.siteplan{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;cursor:zoom-in}
+.siteplan h4{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.siteplan h4 i{width:14px;height:14px;border-radius:3px;background:#e2cfa9}
+
+/* STEP 6: unlock */
+.unlock{background:var(--navy);color:#fff;overflow:hidden}
+.unlock .bgart{position:absolute;right:0;top:0;bottom:0;width:46%;background:url(images/factory.jpg) 30% center/cover;opacity:.9;mask-image:linear-gradient(90deg,transparent,#000 40%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.unlock .wrap{position:relative;z-index:2}
+.unlock .lead{color:rgba(255,255,255,.72)}
+.unlock h2 .serif{color:var(--gold-2)}
+.locked{max-width:620px;margin-top:40px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;overflow:hidden;backdrop-filter:blur(10px)}
+.locked table{width:100%;border-collapse:collapse;font-size:14px}
+.locked th,.locked td{padding:13px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+.locked th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
+.locked td.blur{filter:blur(6px);user-select:none}
+.locked .cta{padding:24px 18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.locked .cta p{font-size:14px;color:rgba(255,255,255,.7)}
+
+/* FAQ */
+.faq{background:var(--paper)}
+.faqs{max-width:820px;margin:44px auto 0}
+details{border-bottom:1px solid var(--line);padding:24px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-weight:600;font-size:19px;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;font-weight:300;color:var(--gold);transition:transform .25s;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:12px;max-width:700px}
+
+/* FINAL: Booking */
+.book{background:linear-gradient(180deg,var(--cream),#efe7da)}
+.book-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start}
+.gets{list-style:none;margin:30px 0;display:grid;gap:16px}
+.gets li{display:flex;gap:16px;align-items:flex-start}
+.gets li b{display:block;font-size:17px}
+.gets li span{font-size:15px;color:var(--muted)}
+.gets .ic{flex:0 0 44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:20px}
+.agent{display:flex;gap:14px;align-items:center;padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line);margin-top:10px}
+.agent .av{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;font-weight:800;font-size:18px}
+.agent small{color:var(--muted);font-size:13px;display:block}
+form.card{padding:40px}
+form h3{font-size:28px;margin-bottom:6px}
+form .sub{color:var(--muted);font-size:15px;margin-bottom:26px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{margin-bottom:16px}
+.f label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+.f input,.f select{width:100%;padding:15px 16px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:var(--paper);color:var(--ink);transition:border .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a8814f' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.f input:focus,.f select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,129,79,.15)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg label{margin:0;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;text-align:center;padding:13px 6px;border:1.5px solid var(--line);border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;background:var(--paper)}
+.seg input:checked+span{border-color:var(--gold);background:var(--gold-soft);color:var(--navy)}
+form .btn{width:100%;margin-top:10px;padding:18px}
+.trust{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--muted);margin-top:14px}
+.err{color:#b34a3e;font-size:13px;margin-top:6px;display:none}
+
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 120px;font-size:13px}
+footer .wrap{display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+footer img{width:110px;border-radius:4px}
+footer b{color:#fff}
+footer p{margin-top:8px;max-width:760px}
+
+/* Sticky mobile CTA */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:95;display:none;gap:10px;padding:10px;border-radius:20px;background:rgba(255,253,249,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(15,26,51,.25);transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.show{transform:none}
+.sticky .btn{flex:1;padding:14px 10px;font-size:15px}
+.fab{position:fixed;right:24px;bottom:24px;z-index:95;width:60px;height:60px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 12px 30px -6px rgba(37,211,102,.6);transform:scale(0);transition:transform .3s}
+.fab.show{transform:scale(1)}
+.fab svg{width:30px;height:30px;fill:#fff}
+
+/* Lightbox + exit modal */
+.lb,.modal{position:fixed;inset:0;z-index:200;background:rgba(10,17,36,.86);display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+.lb.on,.modal.on{display:flex;animation:fade .25s}
+.lb img{max-height:90vh;max-width:96vw;border-radius:12px;background:#fff}
+.lb button,.modal .x{position:absolute;top:18px;right:22px;color:#fff;font-size:34px;line-height:1}
+.modal .box{background:var(--paper);border-radius:26px;max-width:460px;width:100%;padding:40px 34px;text-align:center;position:relative}
+.modal .x{color:var(--muted);top:14px;right:18px;font-size:28px}
+.modal h3{font-size:28px;margin:10px 0}
+.modal p{color:var(--muted);margin-bottom:24px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-height:820px){.scrollcue{display:none}}
+.brand{white-space:nowrap}
+@media(max-width:1100px){.brand span{display:none}}
+@media(max-width:900px){nav.top.solid .stepchip{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* Responsive */
+@media(max-width:960px){
+  section{padding:84px 0}
+  .calc,.loc-grid,.typecard,.book-grid,.match{grid-template-columns:1fr}
+  .specs{grid-template-columns:1fr 1fr}
+  .inside{grid-template-columns:1fr 1fr}
+  .unlock .bgart{width:100%;opacity:.16;mask-image:none;-webkit-mask-image:none}
+  .match .pic{min-height:220px}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  nav.top .wrap{height:62px}
+  nav.top .btn{display:none}
+  .brand span{display:none}
+  .hero .wrap{padding-bottom:56px}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:20px 0;margin-top:44px}
+  .hero .ctas .btn{width:100%}
+  .opts{grid-template-columns:1fr}
+  .opt{display:flex;gap:14px;align-items:flex-start;padding:18px}
+  .opt .ic{margin:0}
+  .card,.result,form.card,.typecard{padding:24px}
+  .q{padding:28px 20px}
+  .quiz-head{padding:16px 20px}
+  .match .info{padding:28px 22px}
+  .bar{grid-template-columns:86px 1fr}
+  .spec{padding:24px 18px}
+  .inside{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr 1fr;gap:8px}
+  .kv b{font-size:17px}
+  .row{grid-template-columns:1fr}
+  .tabs{display:flex;width:100%}
+  .tab{flex:1;padding:12px 8px;font-size:14px}
+  .tab small{display:none}
+  .locked th:nth-child(3),.locked td:nth-child(3){display:none}
+  .sticky{display:flex}
+  .fab{display:none}
+  footer .wrap{grid-template-columns:1fr}
+  .mapbox{aspect-ratio:1.25}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="top" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><b>21 <i>Detached</i> Factories</b><span>Sungai Buaya · Serendah</span></a>
+    <div class="stepchip" id="stepchip">Step 1 of 6</div>
+    <a href="#book" class="btn btn-gold">Book Private Viewing</a>
+  </div>
+</nav>
+
+<div class="dots" id="dots">
+  <a href="#pain" data-s="pain"><span>The real cost</span><i></i></a>
+  <a href="#match" data-s="match"><span>Your match</span><i></i></a>
+  <a href="#product" data-s="product"><span>The factory</span><i></i></a>
+  <a href="#location" data-s="location"><span>Location</span><i></i></a>
+  <a href="#types" data-s="types"><span>Choose your lot</span><i></i></a>
+  <a href="#book" data-s="book"><span>Book viewing</span><i></i></a>
+</div>
+
+<!-- ============ HOOK ============ -->
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="eyebrow rv">New industrial park · Sungai Buaya, Serendah</div>
+    <h1 class="rv d1">Stop paying for<br>someone else's <span class="serif">factory.</span></h1>
+    <p class="sub rv d2">21 detached factories on up to 1.25 acres, with Google Data Center, Perodua and LONGi as neighbours. Once they're taken, that's it.</p>
+    <div class="ctas rv d3">
+      <a href="#pain" class="btn btn-gold">See what renting really costs you <span class="arr">→</span></a>
+      <a href="#book" class="btn btn-ghost">Book a viewing</a>
+    </div>
+    <div class="hero-stats rv d3">
+      <div><b>21</b><small>Units only</small></div>
+      <div><b>0.99–1.25</b><small>Acres of land</small></div>
+      <div><b>12 m</b><small>Ceiling height</small></div>
+      <div><b>3-tonne</b><small>Floor loading</small></div>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<i></i></div>
+</header>
+
+<!-- ============ STEP 1 · PAIN ============ -->
+<section class="pain" id="pain" data-step="1" data-label="The real cost">
+  <div class="wrap">
+    <div class="step rv"><span class="num">STEP 1 / 6</span><span class="eyebrow">The real cost of renting</span></div>
+    <h2 class="rv">Every month you rent,<br>you're <span class="serif gold">building someone else's wealth.</span></h2>
+    <p class="lead rv">Move the sliders to match your current factory. See how much rent leaves your business, and what you own at the end of it.</p>
+
+    <div class="calc">
+      <div class="card rv">
+        <div class="field">
+          <label for="rent">Your monthly rent <output id="rentOut">RM 40,000</output></label>
+          <input type="range" id="rent" min="10000" max="150000" step="1000" value="40000">
+          <div class="range-ends"><span>RM 10k</span><span>RM 150k</span></div>
+        </div>
+        <div class="field">
+          <label for="inc">Rent increase per year <output id="incOut">5%</output></label>
+          <input type="range" id="inc" min="0" max="10" step="0.5" value="5">
+          <div class="range-ends"><span>0%</span><span>10%</span></div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="yrs">Years you plan to operate <output id="yrsOut">15 years</output></label>
+          <input type="range" id="yrs" min="3" max="30" step="1" value="15">
+          <div class="range-ends"><span>3 yrs</span><span>30 yrs</span></div>
+        </div>
+      </div>
+
+      <div class="result rv d1">
+        <div>
+          <small>Total rent paid</small>
+          <div class="big" id="total">RM 0</div>
+          <p id="totalSub">over 15 years, and you own <b style="color:#fff">0 sq ft</b> at the end.</p>
+          <div class="bars">
+            <div class="bar rent"><span>Rent paid</span><div class="track"><div class="fill" id="barRent"></div></div></div>
+            <div class="bar own"><span>Type A factory</span><div class="track"><div class="fill" id="barOwn">RM 9.99M</div></div></div>
+          </div>
+        </div>
+        <div class="verdict" id="verdict"></div>
+        <p class="fine">Rough illustration only, not financial advice. It leaves out financing costs, taxes, maintenance and any change in property value.</p>
+      </div>
+    </div>
+
+    <!-- Market snapshot: asking prices from iProperty & PropertyGuru, collected 21 Oct 2026 -->
+    <div class="market">
+      <div class="market-head rv">
+        <span class="eyebrow">Market check · October 2026</span>
+        <h3>What a detached factory nearby <span class="serif gold">actually costs.</span></h3>
+        <p>Asking prices for detached factories listed on iProperty and PropertyGuru in Serendah, Sungai Buaya, Sungai Choh and Bukit Beruntung.</p>
+      </div>
+      <div class="mstats">
+        <div class="mstat rv"><small>Rent · 1-acre detached, 20–28k sq ft</small><b>RM 35k–43k<span>/month</span></b><p>The typical asking rent is RM 40,000 a month. That's about RM 480,000 a year paid to a landlord.</p></div>
+        <div class="mstat rv d1"><small>Rental rate · detached factories</small><b>RM 1.50–2.00<span>psf / month</span></b><p>The median is about RM 1.85 psf on built-up area, across 29 detached factories listed for rent in the area.</p></div>
+        <div class="mstat rv d2"><small>Asking price · 1-acre detached nearby</small><b>RM 8.0M–13.0M</b><p>For 21,500–28,000 sq ft built-up. Most detached factories in the area ask RM 320–480 psf of built-up area.</p></div>
+      </div>
+      <div class="mtable rv">
+        <table>
+          <thead><tr><th>Detached factory for rent</th><th>Built-up</th><th>Land</th><th>Asking rent</th><th>psf</th></tr></thead>
+          <tbody>
+            <tr><td>Sungai Choh, Serendah</td><td>20,514 sf</td><td>1.00 ac</td><td>RM 40,000</td><td>RM 1.95</td></tr>
+            <tr><td>Laman Serendah</td><td>21,446 sf</td><td>0.92 ac</td><td>RM 40,000</td><td>RM 1.87</td></tr>
+            <tr><td>Bukit Beruntung</td><td>21,452 sf</td><td>1.14 ac</td><td>RM 39,000</td><td>RM 1.82</td></tr>
+            <tr><td>Sungai Buaya, Serendah</td><td>20,000 sf</td><td>1.03 ac</td><td>RM 35,000</td><td>RM 1.75</td></tr>
+            <tr><td>Kampung Baharu Serendah</td><td>22,000 sf</td><td>1.00 ac</td><td>RM 35,000</td><td>RM 1.59</td></tr>
+            <tr><td>Bukit Beruntung (Jalan Kamunting)</td><td>28,000 sf</td><td>1.25 ac</td><td>RM 43,000</td><td>RM 1.54</td></tr>
+          </tbody>
+        </table>
+        <div class="mfoot">
+          <p>Sources: asking prices from listings on iProperty.com.my and PropertyGuru.com.my, collected 21 Oct 2026. These are advertised prices, not transacted prices, and this project's own lots are left out.</p>
+          <button class="btn btn-navy" type="button" id="useMarket">Use RM 40k market rent in the calculator ↑</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 2 · QUALIFY ============ -->
+<section class="quiz-sec" id="match" data-step="2" data-label="Your match">
+  <div class="wrap">
+    <div style="text-align:center">
+      <div class="step rv" style="justify-content:center"><span class="num">STEP 2 / 6</span><span class="eyebrow">60-second match</span></div>
+      <h2 class="rv">Which factory <span class="serif gold">fits your business?</span></h2>
+      <p class="lead rv" style="margin:0 auto">Three quick questions. We'll match you to one of the three factory types.</p>
+    </div>
+
+    <div class="quiz rv">
+      <div class="quiz-head"><span id="qLabel">Question 1 of 3</span><span>Factory Matchmaker</span></div>
+      <div class="quiz-bar"><i id="qBar"></i></div>
+
+      <div class="q on" data-q="1">
+        <h3>What matters most for your next factory?</h3>
+        <div class="opts">
+          <button class="opt" data-k="priority" data-v="A"><span class="ic">💰</span><div><b>Lowest entry price</b><span>Get into your own detached factory for the least capital.</span></div></button>
+          <button class="opt" data-k="priority" data-v="B"><span class="ic">📐</span><div><b>More land</b><span>Extra yard space for trucks, storage and later expansion.</span></div></button>
+          <button class="opt" data-k="priority" data-v="C"><span class="ic">🏁</span><div><b>Corner and visibility</b><span>A corner lot with more frontage for your brand.</span></div></button>
+        </div>
+      </div>
+
+      <div class="q" data-q="2">
+        <h3>What will you run there?</h3>
+        <div class="opts">
+          <button class="opt" data-k="ops" data-v="Manufacturing"><span class="ic">⚙️</span><div><b>Manufacturing</b><span>Production lines, machinery, heavy floor loads.</span></div></button>
+          <button class="opt" data-k="ops" data-v="Warehousing &amp; logistics"><span class="ic">🚚</span><div><b>Warehousing and logistics</b><span>Racking, high stacking, many truck movements.</span></div></button>
+          <button class="opt" data-k="ops" data-v="HQ + operations"><span class="ic">🏢</span><div><b>HQ and operations</b><span>Corporate office together with production or storage.</span></div></button>
+        </div>
+        <button class="back" data-back>← Back</button>
+      </div>
+
+      <div class="q" data-q="3">
+        <h3>When are you planning to move?</h3>
+        <div class="opts">
+          <button class="opt" data-k="when" data-v="Within 6 months"><span class="ic">⚡</span><div><b>Within 6 months</b><span>My lease is ending or I've run out of space.</span></div></button>
+          <button class="opt" data-k="when" data-v="6–12 months"><span class="ic">📅</span><div><b>6–12 months</b><span>I'm planning ahead and comparing options.</span></div></button>
+          <button class="opt" data-k="when" data-v="Exploring / investment"><span class="ic">🔍</span><div><b>Just exploring</b><span>Looking at it as an investment or a future option.</span></div></button>
+        </div>
+        <button class="back" data-back>← Back</button>
+      </div>
+
+      <div class="q" data-q="4" id="qResult">
+        <div class="match">
+          <div class="pic"><em>Artist's impression</em></div>
+          <div class="info">
+            <span class="tag">Your best match</span>
+            <h3 id="mTitle">Type C · Corner</h3>
+            <div class="left"><span class="pulse"></span><span id="mLeft">Only 9 of 21 units are this type</span></div>
+            <div class="price"><small>From</small><b id="mPrice">RM 11.0M</b></div>
+            <ul id="mList"></ul>
+            <a href="#book" class="btn btn-gold" id="mCta">Book a viewing for Type C <span class="arr">→</span></a>
+            <div><button class="back" id="restart">Start again</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 3 · DESIRE / PRODUCT ============ -->
+<section class="product" id="product" data-step="3" data-label="The factory" data-dark>
+  <div class="wrap">
+    <div class="step rv"><span class="num">STEP 3 / 6</span><span class="eyebrow" style="color:var(--gold-2)">Built for production</span></div>
+    <h2 class="rv">Your own detached factory,<br><span class="serif">with nobody sharing your walls.</span></h2>
+    <p class="lead rv">Each unit has room for production, storage and offices, a corporate front for your business, and space around the building for trucks to turn and load.</p>
+
+    <figure class="showcase rv" id="showcase">
+      <img src="images/factory.jpg" alt="Detached factory, artist's impression" loading="lazy">
+      <figcaption>Artist's impression</figcaption>
+    </figure>
+
+    <div class="specs">
+      <div class="spec rv"><b data-count="3">0<small>tonne</small></b><h4>Floor loading</h4><p>Production floor designed for industrial operations.</p></div>
+      <div class="spec rv d1"><b data-count="12">0<small>metres</small></b><h4>Ceiling height</h4><p>High production space for racking and machinery.</p></div>
+      <div class="spec rv d2"><b data-count="25865" data-fmt="1">0<small>sq ft</small></b><h4>Built-up, up to</h4><p>Type B. Type A from 22,833 sq ft built-up.</p></div>
+      <div class="spec rv d3"><b data-count="54335" data-fmt="1">0<small>sq ft</small></b><h4>Land, up to</h4><p>1.25 acres. Smallest lot is 0.99 acre.</p></div>
+    </div>
+
+    <div class="inside">
+      <div class="rv"><span>🏭</span>Production area on the ground floor</div>
+      <div class="rv d1"><span>🧑‍💼</span>Offices on the ground and first floor</div>
+      <div class="rv d2"><span>🍽️</span>Canteen, washrooms and surau</div>
+      <div class="rv d3"><span>🚛</span>Front loading bay and room for trucks to turn</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 4 · LOCATION PROOF ============ -->
+<section class="loc" id="location" data-step="4" data-label="Location">
+  <div class="wrap">
+    <div class="step rv"><span class="num">STEP 4 / 6</span><span class="eyebrow">Location and ecosystem</span></div>
+    <h2 class="rv">The big names <span class="serif gold">are already here.</span></h2>
+    <p class="lead rv">The site sits in the Sungai Buaya–Serendah industrial corridor, where automotive, manufacturing, logistics and data-centre players have already set up.</p>
+  </div>
+
+  <div class="neighbours rv">
+    <div class="marquee" id="marquee"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="reasons">
+        <button class="reason on rv" data-map="0">
+          <span class="n">01</span>
+          <div><h4>Established big-name neighbours</h4><p>Google Data Center, Perodua, LONGi, UMW Aerospace, Tan Chong Motors and more nearby.</p></div>
+        </button>
+        <button class="reason rv d1" data-map="1">
+          <span class="n">02</span>
+          <div><h4>Highway access today</h4><p>Reach the North–South Expressway (E1) via Sungai Buaya Interchange. ECRL Bandar Serendah station (passenger and freight) is about 8 km away.</p><span class="pill">ECRL ≈ 8 km</span></div>
+        </button>
+        <button class="reason rv d2" data-map="2">
+          <span class="n">03</span>
+          <div><h4>A second interchange planned</h4><p>A planned road through the industrial park will connect to Bukit Beruntung Interchange, giving you two ways onto the highway.</p><span class="pill">Target Q1 2028*</span></div>
+        </button>
+      </div>
+      <div class="rv d1">
+        <div class="mapbox" id="mapbox">
+          <img src="images/ecosystem-map.jpg" class="on" alt="Industrial ecosystem around the site" loading="lazy">
+          <img src="images/connectivity-map.jpg" alt="Connectivity map" loading="lazy">
+          <img src="images/access-route.jpg" alt="Future access route to Bukit Beruntung" loading="lazy">
+          <span class="zoom">Tap to enlarge ⤢</span>
+        </div>
+        <p class="mapnote">Maps are schematic, for presentation only and not to scale. *The planned connection depends on infrastructure works and progress by the authorities and developer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 5 · CHOOSE / SCARCITY ============ -->
+<section class="types" id="types" data-step="5" data-label="Choose your lot">
+  <div class="wrap">
+    <div class="step rv"><span class="num">STEP 5 / 6</span><span class="eyebrow">Choose your lot</span></div>
+    <h2 class="rv">21 lots. <span class="serif gold">One industrial address.</span></h2>
+    <p class="lead rv">Three layouts, one standard of build. Only 21 lots in total, and the choice gets smaller with every booking.</p>
+
+    <div class="scarcity rv">
+      <div class="lots" id="lotBlocks"></div>
+      <span id="lotCount">21 of 21 available</span>
+    </div>
+
+    <div class="tabs rv" id="tabs">
+      <button class="tab" data-t="A">Type A<small>Intermediate</small></button>
+      <button class="tab" data-t="B">Type B<small>Intermediate</small></button>
+      <button class="tab on" data-t="C">Type C<small>Corner</small></button>
+    </div>
+
+    <div class="typecard" id="typecard"></div>
+
+    <div class="siteplan rv" data-zoom="images/site-plan.jpg">
+      <h4><i></i>Site plan: the 21 lots are highlighted in gold</h4>
+      <img src="images/site-plan.jpg" alt="Site plan" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICE UNLOCK ============ -->
+<section class="unlock" id="unlock" data-dark>
+  <div class="bgart"></div>
+  <div class="wrap">
+    <span class="eyebrow rv" style="color:var(--gold-2)">Lot-by-lot pricing</span>
+    <h2 class="rv">From <span class="serif">RM 9.985 million.</span><br>Every lot is priced differently.</h2>
+    <p class="lead rv">Prices work out to roughly RM 425–437 per sq ft of built-up area. Lot-by-lot pricing and current availability are shared directly with serious buyers.</p>
+
+    <div class="locked rv">
+      <table>
+        <thead><tr><th>Lot</th><th>Type</th><th>Land</th><th>SPA price</th></tr></thead>
+        <tbody>
+          <tr><td>55</td><td>A</td><td>0.99 ac</td><td class="blur">RM 88,888,888</td></tr>
+          <tr><td>3A</td><td>B</td><td>1.24 ac</td><td class="blur">RM 88,888,888</td></tr>
+          <tr><td>176</td><td>C</td><td>1.25 ac</td><td class="blur">RM 88,888,888</td></tr>
+          <tr><td>···</td><td>···</td><td>···</td><td class="blur">RM 88,888,888</td></tr>
+        </tbody>
+      </table>
+      <div class="cta">
+        <p>Get the full price list for all 21 lots on WhatsApp.</p>
+        <a href="#" class="btn btn-gold" data-wa="pricelist">Unlock the price list <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ / OBJECTIONS ============ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow rv">Before you decide</span>
+      <h2 class="rv">Questions buyers <span class="serif gold">ask us first.</span></h2>
+    </div>
+    <div class="faqs">
+      <details class="rv"><summary>Why buy a detached factory instead of a semi-D or terrace?</summary><p>You have no shared walls and no neighbour's trucks blocking your gate. The setback all around the building leaves space for trucks to turn, load and wait. Every unit sits on at least 0.99 acre.</p></details>
+      <details class="rv"><summary>What's the difference between Type A, B and C?</summary><p>Type A (4 units) is the intermediate lot at 0.99 acre with 22,833 sq ft built-up. Type B (8 units) is intermediate on 1.20–1.24 acres with 25,865 sq ft built-up. Type C (9 units) is a corner lot on 1.19–1.25 acres with 25,844 sq ft built-up. All three have production space, offices, a canteen, washrooms and a surau.</p></details>
+      <details class="rv"><summary>How accessible is the site for my trucks and workers?</summary><p>You can reach it today through Sungai Buaya Interchange on the North–South Expressway (E1). A second connection to Bukit Beruntung Interchange is planned through the industrial park, with a target of Q1 2028. ECRL Bandar Serendah station is about 8 km away.</p></details>
+      <details class="rv"><summary>What happens at a private viewing?</summary><p>We take you round the site, go through the floor plans for the lots you shortlisted, and show you the latest availability and pricing. There.s no obligation to buy.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 6 · ACTION ============ -->
+<section class="book" id="book" data-step="6" data-label="Book viewing">
+  <div class="wrap book-grid">
+    <div>
+      <div class="step rv"><span class="num">STEP 6 / 6</span><span class="eyebrow">Private viewing</span></div>
+      <h2 class="rv">See it in person<br><span class="serif gold">before it's gone.</span></h2>
+      <p class="lead rv">Pictures only show so much. Stand on the land, walk the boundary and picture your trucks in the yard.</p>
+      <ul class="gets">
+        <li class="rv"><span class="ic">📍</span><div><b>1-to-1 site walk</b><span>See the lots, the roads and the neighbours for yourself.</span></div></li>
+        <li class="rv d1"><span class="ic">📋</span><div><b>Full price list and live availability</b><span>See which of the 21 lots are still open on the day you visit.</span></div></li>
+        <li class="rv d2"><span class="ic">📐</span><div><b>Floor plan pack</b><span>Detailed ground and first-floor plans for your shortlisted type.</span></div></li>
+      </ul>
+      <div class="agent rv">
+        <div class="av" id="agentInitials">CR</div>
+        <div><b id="agentName">Property Consultant</b><small id="agentRole">WhatsApp 011-7019 4192</small></div>
+      </div>
+    </div>
+
+    <form class="card rv d1" id="bookForm" novalidate>
+      <h3>Book your private viewing</h3>
+      <p class="sub">It takes 30 seconds. We'll confirm your slot on WhatsApp.</p>
+      <div class="row">
+        <div class="f"><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" placeholder="e.g. Mr Tan" required></div>
+        <div class="f"><label for="fPhone">Mobile number</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="012-345 6789" required></div>
+      </div>
+      <div class="f"><label for="fCo">Company / industry</label><input id="fCo" name="company" placeholder="e.g. Food manufacturing"></div>
+      <div class="f"><label for="fType">Interested in</label>
+        <select id="fType" name="type">
+          <option value="Type A · Intermediate (0.99 ac)">Type A · Intermediate (0.99 ac)</option>
+          <option value="Type B · Intermediate (1.20–1.24 ac)">Type B · Intermediate (1.20–1.24 ac)</option>
+          <option value="Type C · Corner (1.19–1.25 ac)" selected>Type C · Corner (1.19–1.25 ac)</option>
+          <option value="Not sure yet">Not sure yet, help me choose</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="f"><label for="fDate">Preferred date</label><input id="fDate" name="date" type="date"></div>
+        <div class="f"><label>Time</label>
+          <div class="seg">
+            <label><input type="radio" name="slot" value="Morning" checked><span>AM</span></label>
+            <label><input type="radio" name="slot" value="Afternoon"><span>PM</span></label>
+            <label><input type="radio" name="slot" value="Flexible"><span>Any</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="err" id="fErr">Please enter your name and mobile number.</div>
+      <button class="btn btn-gold" type="submit">Confirm my viewing on WhatsApp <span class="arr">→</span></button>
+      <div class="trust">🔒 Your details go only to your property consultant.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>21 Detached Factories</b> · Sungai Buaya, Serendah, Selangor<br>
+      Enquiries and private viewings: <a href="#" data-wa="general" style="color:#fff">WhatsApp 011-7019 4192</a>
+      <p>All images are artist's impressions. Maps are schematic and not to scale. Specifications, layouts, prices and availability may change without notice and do not form part of any offer or contract. Refer to the applicable lot plans and SPA for details.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky" id="sticky">
+  <a href="#" class="btn btn-wa" data-wa="general">WhatsApp</a>
+  <a href="#book" class="btn btn-gold">Book Viewing</a>
+</div>
+<a href="#" class="fab" id="fab" data-wa="general" aria-label="WhatsApp us"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+
+<!-- Lightbox -->
+<div class="lb" id="lb"><button aria-label="Close">×</button><img alt=""></div>
+
+<!-- Exit-intent modal -->
+<div class="modal" id="exitModal">
+  <div class="box">
+    <button class="x" aria-label="Close">×</button>
+    <span class="eyebrow" style="justify-content:center">Before you go</span>
+    <h3>Get the full price list on WhatsApp</h3>
+    <p>All 21 lots, with land size, built-up and SPA price. We'll send it in one message.</p>
+    <a href="#" class="btn btn-wa" style="width:100%" data-wa="pricelist">Send me the price list</a>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   ✏️  EDIT HERE: contact details and lot availability
+   ========================================================= */
+const CONFIG = {
+  whatsapp: "601170194192",        // WhatsApp 011-7019 4192 (country code 60, no + or spaces)
+  agentName: "Property Consultant",     // Name shown on the booking section
+  agentRole: "WhatsApp 011-7019 4192",
+  // Lots already sold or reserved. Add the lot number, e.g. ["55", "8"]
+  takenLots: []
+};
+
+const TYPES = {
+  A:{ name:"Type A", kind:"Intermediate", lots:["55","56","60","171"], land:"0.99 ac", landSf:"43,056 sq ft", bu:"22,833 sq ft",
+      price:"RM 9,985,000", priceShort:"RM 9.985M", psf:"≈ RM 437 psf built-up", plot:"50 m × 80 m plot",
+      head:"Production space with offices built in.", gf:"images/plan-a-gf.jpg", ff:"images/plan-a-1f.jpg",
+      points:["The lowest entry price for a detached factory here","0.99-acre plot of 50 m × 80 m","Offices on the ground and first floor","Loading access at the front"]},
+  B:{ name:"Type B", kind:"Intermediate", lots:["8","9","26","27","3A","11","17","32"], land:"1.20–1.24 ac", landSf:"52,330–53,830 sq ft", bu:"25,865 sq ft",
+      price:"RM 10,985,000", priceShort:"RM 10.985M", psf:"≈ RM 425–429 psf built-up", plot:"Largest built-up of the three types",
+      head:"More room for daily operations.", gf:"images/plan-b-gf.jpg", ff:"images/plan-b-1f.jpg",
+      points:["The largest built-up area: 25,865 sq ft","1.20–1.24 acres of land","Front loading access plus side ramps","The lowest price per sq ft of built-up area"]},
+  C:{ name:"Type C", kind:"Corner", lots:["96","83A","87","88","91","53A","62","121","176"], land:"1.19–1.25 ac", landSf:"51,861–54,335 sq ft", bu:"25,844 sq ft",
+      price:"RM 11,000,000", priceShort:"RM 11.0M", psf:"≈ RM 426–435 psf built-up", plot:"Corner frontage",
+      head:"A corner lot built for production.", gf:"images/plan-c-gf.jpg", ff:"images/plan-c-1f.jpg",
+      points:["A corner lot with more frontage and visibility","Up to 1.25 acres, the largest land in the project","Front loading access and a ramp","9 units, the most of the three types"]}
+};
+const NEIGHBOURS = ["Google Data Center","Perodua","LONGi","UMW Aerospace","Tan Chong Motors","UMW High Value Manufacturing Park","Yee Lee (Spritzer)","Serendah Technology Park","99 Speedmart Warehouse","Thung Hin Metal","Leform","PSSB Smart","Starken","Asiatal Logistic"];
+
+/* ---------- helpers ---------- */
+const $ = (s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const rm = n => "RM " + Math.round(n).toLocaleString("en-MY");
+const rmShort = n => n>=1e6 ? "RM " + (n/1e6).toFixed(2).replace(/\.?0+$/,"") + "M" : rm(n);
+const isAvail = l => !CONFIG.takenLots.map(String).includes(String(l));
+const lead = {};
+
+function waLink(kind){
+  let msg;
+  if(kind==="pricelist") msg = "Hi, I'm interested in the 21 detached factories in Sungai Buaya, Serendah. Please send me the full price list and current availability.";
+  else if(kind==="booking") msg = lead.msg;
+  else msg = "Hi, I'm interested in the 21 detached factories in Sungai Buaya, Serendah. Can you share more details?";
+  if(lead.priority && kind!=="booking") msg += "\n(Matched: " + TYPES[lead.priority].name + ")";
+  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
+}
+document.addEventListener("click", e=>{
+  const a = e.target.closest("[data-wa]"); if(!a) return;
+  e.preventDefault(); window.open(waLink(a.dataset.wa), "_blank");
+});
+
+/* ---------- agent ---------- */
+$("#agentName").textContent = CONFIG.agentName;
+$("#agentRole").textContent = CONFIG.agentRole;
+$("#agentInitials").textContent = CONFIG.agentName.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }),{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+$$(".rv,.showcase").forEach(el=>io.observe(el));
+
+/* ---------- count-up ---------- */
+const cio = new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting) return; cio.unobserve(en.target);
+  const el=en.target, to=+el.dataset.count, small=el.querySelector("small").outerHTML, t0=performance.now(), d=1600;
+  (function tick(t){ const p=Math.min(1,(t-t0)/d), v=Math.round(to*(1-Math.pow(1-p,3)));
+    el.innerHTML=(el.dataset.fmt?v.toLocaleString("en-MY"):v)+small; if(p<1) requestAnimationFrame(tick); })(t0);
+}),{threshold:.5});
+$$("[data-count]").forEach(el=>cio.observe(el));
+
+/* ---------- progress, nav, step chip, dots, sticky ---------- */
+const nav=$("#nav"), prog=$("#progress"), chip=$("#stepchip"), dots=$("#dots"), sticky=$("#sticky"), fab=$("#fab");
+const steps=$$("section[data-step]"), darkSecs=$$("[data-dark]");
+function onScroll(){
+  const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(y/h*100)+"%";
+  nav.classList.toggle("solid", y>innerHeight*.75);
+  const show = y>innerHeight*.6 && y < $("#book").offsetTop-innerHeight*.4;
+  sticky.classList.toggle("show", show); fab.classList.toggle("show", y>innerHeight*.6);
+  let cur=null; steps.forEach(s=>{ if(s.getBoundingClientRect().top < innerHeight*.45) cur=s; });
+  if(cur){ chip.textContent="Step "+cur.dataset.step+" of 6 · "+cur.dataset.label;
+    $$("a",dots).forEach(a=>a.classList.toggle("on", a.dataset.s===cur.id)); }
+  const mid=innerHeight/2; dots.classList.toggle("dark", darkSecs.some(s=>{const r=s.getBoundingClientRect(); return r.top<mid&&r.bottom>mid;}) || y<innerHeight*.8);
+}
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+/* ---------- STEP 1: rent calculator ---------- */
+const rent=$("#rent"), inc=$("#inc"), yrs=$("#yrs"), TYPE_A_PRICE=9985000;
+function calc(){
+  [rent,inc,yrs].forEach(r=>r.style.setProperty("--p",((r.value-r.min)/(r.max-r.min)*100)+"%"));
+  const m=+rent.value, g=+inc.value/100, n=+yrs.value;
+  let total=0; for(let i=0;i<n;i++) total += m*12*Math.pow(1+g,i);
+  $("#rentOut").textContent=rm(m); $("#incOut").textContent=inc.value+"%"; $("#yrsOut").textContent=n+" years";
+  $("#total").innerHTML=rm(total).replace("RM ","RM&nbsp;");
+  $("#totalSub").innerHTML="over "+n+" years, and you own <b style='color:#fff'>0 sq ft</b> at the end.";
+  const max=Math.max(total,TYPE_A_PRICE);
+  $("#barRent").style.width=Math.max(8,total/max*100)+"%"; $("#barRent").textContent=rmShort(total);
+  $("#barOwn").style.width=Math.max(8,TYPE_A_PRICE/max*100)+"%";
+  const pct=total/TYPE_A_PRICE*100;
+  $("#verdict").innerHTML = pct>=100
+    ? "That's <b>"+Math.round(pct)+"%</b> of the price of a Type A factory here, and you'd own none of it. <a href='#match' style='color:var(--gold-2);font-weight:700'>See which lot fits you ↓</a>"
+    : "That's <b>"+Math.round(pct)+"%</b> of the price of a Type A factory here, gone, with nothing to show for it. <a href='#match' style='color:var(--gold-2);font-weight:700'>See which lot fits you ↓</a>";
+}
+[rent,inc,yrs].forEach(r=>r.addEventListener("input",calc)); calc();
+$("#useMarket").addEventListener("click",()=>{ rent.value=40000; calc(); $("#pain .calc").scrollIntoView({behavior:"smooth",block:"center"}); });
+
+/* ---------- STEP 2: quiz ---------- */
+let qi=1;
+function showQ(n){ qi=n; $$(".q").forEach(q=>q.classList.toggle("on", +q.dataset.q===n));
+  $("#qBar").style.width=Math.min(100,n/3*100)+"%"; $("#qLabel").textContent = n<=3 ? "Question "+n+" of 3" : "Your result"; }
+$$(".opt").forEach(b=>b.addEventListener("click",()=>{ lead[b.dataset.k]=b.dataset.v; if(qi<3) showQ(qi+1); else showResult(); }));
+$$("[data-back]").forEach(b=>b.addEventListener("click",()=>showQ(qi-1)));
+$("#restart").addEventListener("click",()=>showQ(1));
+function showResult(){
+  const t=TYPES[lead.priority], avail=t.lots.filter(isAvail).length;
+  $("#mTitle").textContent=t.name+" · "+t.kind;
+  $("#mLeft").textContent = avail+" of "+t.lots.length+" "+t.name+" units still available";
+  $("#mPrice").textContent=t.priceShort;
+  $("#mList").innerHTML=[t.land+" land · "+t.bu+" built-up", ...t.points.slice(0,2), "Fits "+lead.ops.replace("&amp;","&").toLowerCase()].map(x=>"<li>"+x+"</li>").join("");
+  $("#mCta").innerHTML="Book a viewing for "+t.name+' <span class="arr">→</span>';
+  const sel=$("#fType"); [...sel.options].forEach(o=>{ if(o.value.startsWith(t.name)) sel.value=o.value; });
+  renderType(lead.priority);
+  showQ(4);
+}
+
+/* ---------- STEP 5: types + scarcity ---------- */
+function renderType(k){
+  const t=TYPES[k];
+  $$(".tab").forEach(b=>b.classList.toggle("on", b.dataset.t===k));
+  const avail=t.lots.filter(isAvail).length;
+  $("#typecard").innerHTML = `
+    <div class="plans">
+      <figure data-zoom="${t.gf}"><figcaption>Ground floor</figcaption><img src="${t.gf}" alt="${t.name} ground floor plan" loading="lazy"></figure>
+      <figure data-zoom="${t.ff}"><figcaption>First floor</figcaption><img src="${t.ff}" alt="${t.name} first floor plan" loading="lazy"></figure>
+    </div>
+    <div class="typeinfo">
+      <span class="tag">${t.name} · ${t.kind} · ${t.lots.length} units</span>
+      <h3>${t.head}</h3>
+      <div class="price"><small>From</small><b>${t.price}</b></div>
+      <div class="psf">${t.psf}</div>
+      <div class="kv">
+        <div><small>Land</small><b>${t.land}</b></div>
+        <div><small>Land area</small><b>${t.landSf}</b></div>
+        <div><small>Built-up</small><b>${t.bu}</b></div>
+        <div><small>Available</small><b style="color:${avail<=3?'#b34a3e':'inherit'}">${avail} of ${t.lots.length}</b></div>
+      </div>
+      <small style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Lot numbers</small>
+      <div class="lotlist">${t.lots.map(l=>`<span class="${isAvail(l)?'':'taken'}">Lot ${l}</span>`).join("")}</div>
+      <a href="#book" class="btn btn-navy" data-pick="${k}">Book a viewing for ${t.name} <span class="arr">→</span></a>
+    </div>`;
+}
+$$(".tab").forEach(b=>b.addEventListener("click",()=>renderType(b.dataset.t)));
+document.addEventListener("click",e=>{ const p=e.target.closest("[data-pick]"); if(!p) return;
+  const sel=$("#fType"); [...sel.options].forEach(o=>{ if(o.value.startsWith(TYPES[p.dataset.pick].name)) sel.value=o.value; }); });
+renderType("C");
+(function(){ const all=Object.values(TYPES).flatMap(t=>t.lots), a=all.filter(isAvail).length;
+  $("#lotBlocks").innerHTML=all.map(l=>`<i class="${isAvail(l)?'':'taken'}" title="Lot ${l}"></i>`).join("");
+  $("#lotCount").textContent = a+" of "+all.length+" lots available"; })();
+
+/* ---------- STEP 4: location ---------- */
+$("#marquee").innerHTML = [...NEIGHBOURS,...NEIGHBOURS].map(n=>`<span class="chip"><i></i>${n}</span>`).join("");
+const maps=$$("#mapbox img");
+$$(".reason").forEach(r=>r.addEventListener("click",()=>{
+  $$(".reason").forEach(x=>x.classList.toggle("on", x===r));
+  maps.forEach((m,i)=>m.classList.toggle("on", i===+r.dataset.map));
+}));
+$("#mapbox").addEventListener("click",()=>openLb($("#mapbox img.on").src));
+
+/* ---------- lightbox ---------- */
+const lb=$("#lb");
+function openLb(src){ $("img",lb).src=src; lb.classList.add("on"); }
+document.addEventListener("click",e=>{ const z=e.target.closest("[data-zoom]"); if(z) openLb(z.dataset.zoom); });
+lb.addEventListener("click",()=>lb.classList.remove("on"));
+
+/* ---------- booking form ---------- */
+const fDate=$("#fDate"); const tmr=new Date(Date.now()+864e5); fDate.min=tmr.toISOString().slice(0,10);
+$("#bookForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=e.target, name=f.name.value.trim(), phone=f.phone.value.trim();
+  if(!name || phone.replace(/\D/g,"").length<9){ $("#fErr").style.display="block"; (name?f.phone:f.name).focus(); return; }
+  $("#fErr").style.display="none";
+  const date=f.date.value ? new Date(f.date.value).toLocaleDateString("en-MY",{weekday:"short",day:"numeric",month:"short",year:"numeric"}) : "Flexible";
+  lead.msg = "Hi, I'd like to book a private viewing of the detached factories in Sungai Buaya, Serendah.\n\n"
+    + "Name: "+name+"\nMobile: "+phone
+    + (f.company.value.trim() ? "\nCompany: "+f.company.value.trim() : "")
+    + "\nInterested in: "+f.type.value
+    + "\nPreferred date: "+date+" ("+f.slot.value+")"
+    + (lead.ops ? "\nUse: "+lead.ops.replace("&amp;","&") : "")
+    + (lead.when ? "\nTimeline: "+lead.when : "");
+  window.open(waLink("booking"),"_blank");
+});
+
+/* ---------- exit intent (desktop, once per visit) ---------- */
+const modal=$("#exitModal"); let exitShown=false;
+try{ exitShown = sessionStorage.getItem("df_exit")==="1"; }catch(_){}
+document.addEventListener("mouseout",e=>{
+  if(exitShown || e.relatedTarget || e.clientY>10 || scrollY<innerHeight) return;
+  exitShown=true; try{ sessionStorage.setItem("df_exit","1"); }catch(_){}
+  modal.classList.add("on");
+});
+modal.addEventListener("click",e=>{ if(e.target===modal || e.target.closest(".x")) modal.classList.remove("on"); });
+addEventListener("keydown",e=>{ if(e.key==="Escape"){ modal.classList.remove("on"); lb.classList.remove("on"); }});
+</script>
+</body>
+</html>
